@@ -61,3 +61,18 @@ Let us create a simple hello world chat endpoint to wire things together
    `curl --location --request POST 'localhost:5002/chat' --header 'Content-Type: application/json' --data-raw '{"question" : "Hello. How are you?"}'`
 
 3. Congratulations, You have an API powered by LLM at your service now! 😊
+
+---
+
+## Part 3 : Create the frontend and connect it with backend
+
+### Build the interface
+
+Given that this is a LLM workshop, Let us not waste time in building the chat window interface. Feel free to use the html and js files in this repo. Don't lose lots of time tweaking and customizing them 😉
+
+1. Copy the `chat.html` file inside templates folder (this is where flask will look for html files)
+2. Copy the `chat.css` file inside static folder
+3. Copy also the `chat.js` file which has helper methods to send and render received messages
+4. Update `app.py` route to return the html template for root path `/`
+5. Reload the browser window to see the page rendered with a chat window
+6. This code calls the API endpoint `/chat` when "Send" button is clicked. Try sending a message and watch the server logs!
