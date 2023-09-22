@@ -76,3 +76,18 @@ Given that this is a LLM workshop, Let us not waste time in building the chat wi
 4. Update `app.py` route to return the html template for root path `/`
 5. Reload the browser window to see the page rendered with a chat window
 6. This code calls the API endpoint `/chat` when "Send" button is clicked. Try sending a message and watch the server logs!
+
+---
+
+# Retrieval Augmented Generation
+
+RAG is an AI framework for retrieving facts from an external knowledge base to ground large language models with appropriate context to generate relavant and better responses
+
+## Part 4 : Get Qdrant up and running
+
+Qdrant is a vector similarity search engine build with rust with easy to use API to store and search
+
+1. Pull qdrant docker image using command `docker pull qdrant/qdrant`
+2. Start qdrant `docker run -p 6333:6333 -v $(pwd)/qdrant_storage:/qdrant/storage:z qdrant/qdrant`
+3. Qdrant will start running in port 6333 and will store all the vector data in the folder `qdrant_storage` (Include also this in the .gitignore file)
+4. Have a look at https://qdrant.tech/documentation/quick-start/ if you want play with a vector store before integrating it with LLM
