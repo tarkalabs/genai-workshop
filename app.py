@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 from langchain.llms import OpenAI
 from env import OPENAI_API_KEY
 
@@ -6,8 +6,8 @@ app = Flask(__name__)
 
 
 @app.route("/")
-def hello_world():
-  return "Hello <b>AI</b> world"
+def index():
+  return render_template("chat.html")
 
 @app.post("/chat")
 def chat():

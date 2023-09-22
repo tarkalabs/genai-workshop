@@ -1,0 +1,58 @@
+body {
+  background-color: #e0e0e0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.window {
+  background-image: linear-gradient(178deg, #ecf0f1, #ecf0f1, #c3dff2);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 400px;
+  height: 500px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 2px 13px 2px #00000061;
+  padding: 20px;
+}
+
+.heading {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.messages {
+  flex-grow: 1;
+  font-size: 0.9em;
+  overflow: auto;
+  padding: 10px 0;
+}
+
+.messages .sent {
+  text-align: right;
+  margin-left: 100px;
+  padding: 10px 0;
+}
+
+.messages .received {
+  margin-right: 100px;
+  padding: 10px 0;
+}
+
+.controls {
+  display: flex;
+}
+
+input {
+  padding: 10px;
+  flex-grow: 1;
+  border: none;
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  border: 0;
+  width: 60px;
+}
