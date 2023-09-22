@@ -6,7 +6,9 @@ name = "pypi"
 [packages]
 flask = "*"
 langchain = "*"
-openai = "*"
+qdrant-client = "*"
+openai = {extras = ["embeddings"], version = "*"}
+tiktoken = "*"
 
 [dev-packages]
 

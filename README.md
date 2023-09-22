@@ -91,3 +91,39 @@ Qdrant is a vector similarity search engine build with rust with easy to use API
 2. Start qdrant `docker run -p 6333:6333 -v $(pwd)/qdrant_storage:/qdrant/storage:z qdrant/qdrant`
 3. Qdrant will start running in port 6333 and will store all the vector data in the folder `qdrant_storage` (Include also this in the .gitignore file)
 4. Have a look at https://qdrant.tech/documentation/quick-start/ if you want play with a vector store before integrating it with LLM
+
+## Part 5 : Load document(s) into Qdrant
+
+Let us load some large documents into Qdrant as vectors by using OpenAIEmbeddings functions that convert the text into vectors
+
+### Install needed modules
+
+Install all the dependent modules that is needed for us to load the text as embeddings in vector database
+
+`pipenv install qdrant-client`
+`pipenv install "openai[embeddings]"`
+`pipenv install tiktoken`
+
+### Define a constant for the database url
+
+Let us define a constant in our env.py file to store the database url for our application to connect. Name this constant as `QDRANT_URL`. If you are running your database locally as per the above step, its value will be `http://localhost:6333`
+
+### Load the document
+
+To make it easy I have included a huge insurance terms document in this repo (`data/insurance.txt`). Let us load this document as chunks into our vector database using the script in `load_vectordb.py`. It does the following
+
+1. Loads the file using `TextLoader`
+2. Splits the contents of the file into smaller chunks using `RecursiveCharacterTextSplitter`
+3. Converts this chunks one by one into embeddings using `OpenAIEmbeddings` and stores them in the vector database under the collection name `insurance`
+
+Note: To run the script `load_vectordb.py` use the command `pipenv shell` to get into the context where all the dependent modules are loaded.
+
+### Test the loaded data
+
+Now, Let us verify if the document chunks are loaded properly into our vector database. The script in the file `test_vectordb.py` will help you with that. It does the following
+
+1. It creates a `QdrantClient` instance to connect to the database running in your local (using the above defined `QDRANT_URL` constant)
+2. Creates an instance of vector store with which we can query the database
+3. Runs a similarity search for the given query and prints the results on the screen for our verification
+
+Note: To run the script `test_vectordb.py` use the command `pipenv shell` to get into the context where all the dependent modules are loaded.
