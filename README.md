@@ -127,3 +127,9 @@ Now, Let us verify if the document chunks are loaded properly into our vector da
 3. Runs a similarity search for the given query and prints the results on the screen for our verification
 
 Note: To run the script `test_vectordb.py` use the command `pipenv shell` to get into the context where all the dependent modules are loaded.
+
+## Part 6 : Connect the vector store with LLM
+
+Let us write a small helper class called `Bot` that will help us to write all the things together. Please note we are instantiating lots of classes here for every request. We can get away with this because it is a workshop. Restructure the code effeciently for production applications 😊
+
+Ref: https://python.langchain.com/docs/use_cases/question_answering/
