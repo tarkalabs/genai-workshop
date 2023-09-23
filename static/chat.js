@@ -17,6 +17,16 @@ const sendMessage = async () => {
   appendMsg(responseText, false);
   input.value = "";
 };
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.querySelector("input");
+  input.addEventListener('keydown', (ev) => {
+    if (ev.code === 'Enter') {
+      sendMessage();
+      input.value = ''
+    }
+  })
+
+});
 
 function appendMsg(msg, sentMsg) {
   const element = createMsgElem(msg, sentMsg);
